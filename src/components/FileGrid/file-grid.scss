@@ -1,0 +1,7 @@
+ .file-grid {
+    margin-top: 50px;
+    display: grid;
+    align-content: center;
+    justify-content: start;
+    grid-template-columns: repeat(7, 1fr);
+}

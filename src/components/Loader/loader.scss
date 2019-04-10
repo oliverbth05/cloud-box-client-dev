@@ -1,0 +1,28 @@
+.loader {
+    height: 50px;
+    width: 50px;
+    border: 2px solid;
+    border-radius: 50%;
+    border-color: $color1 transparent $color1-darker transparent;
+    animation: spin;
+    animation-iteration-count: infinite;
+    animation-duration: .6s;
+    animation-timing-function: linear;
+    
+    &__container {
+        height: 101px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+

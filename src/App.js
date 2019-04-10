@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { connect } from 'react-redux';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+import Directory from './components/Directory';
+import Form from './components/Form';
+import ActionModal from './components/ActionModal';
+import Banner from './components/Banner';
+import Quota from './components/Quota';
+
+class App extends React.Component {
+    render() {
+        return (
+            <div>
+                <ActionModal />
+                <Banner {...this.props.banner}/>
+                <div className = 'heading'>
+                    <h1 className = 'logo'><i class="fas fa-cloud"></i> Cloud Box <span>V1</span></h1>
+                    <p className = 'about'>The files in the directory will periodically be reset, and the quota has been arbitrarily set to 9.54MB</p>
+                </div>
+                <div className = 'flex-2'>
+                    <Quota />
+                    <Form />
+                </div>
+                <Directory />
+            </div>
+        )
+    }
 }
 
-export default App;
+const mapStateToProps = state => ({
+    banner: state.banner,
+})
+
+export default connect(mapStateToProps, null)(App);
